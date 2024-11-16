@@ -43,9 +43,9 @@ public class EncryptedPasswordUtils {
     public static String encryptPassword(String password) {
     	byte[] encrypted = null;
     	try {
-			Cipher desCipher = Cipher.getInstance("DES");
-			desCipher.init(Cipher.ENCRYPT_MODE, keySpec);
-			encrypted = desCipher.doFinal(password.getBytes()); 	
+			Cipher aesCipher = Cipher.getInstance("AES");
+			aesCipher.init(Cipher.ENCRYPT_MODE, keySpec);
+			encrypted = aesCipher.doFinal(password.getBytes());
 		} catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,9 +59,9 @@ public class EncryptedPasswordUtils {
     	byte[] encrypted = null;
     	String encPassword1 = "";
     	try {
-			Cipher desCipher = Cipher.getInstance("DES");
-			desCipher.init(Cipher.ENCRYPT_MODE, keySpec);
-			encrypted = desCipher.doFinal(password1.getBytes());
+			Cipher aesCipher = Cipher.getInstance("AES");
+			aesCipher.init(Cipher.ENCRYPT_MODE, keySpec);
+			encrypted = aesCipher.doFinal(password1.getBytes());
 			encPassword1 = new String(encrypted); 
 		} catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
 			// TODO Auto-generated catch block
